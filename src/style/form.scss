@@ -16,7 +16,7 @@
         font-size: 12px;
         display: none;
 
-        &__active {
+        &--active {
             display: block;
         }
     }
@@ -32,6 +32,17 @@
 
     &:active {
         opacity: 0.3;
+    }
+
+    &--disabled {
+        opacity: 0.5;
+        cursor: default;
+
+        &:hover,
+        &:active {
+            opacity: 0.5;
+            cursor: default;
+        }
     }
 }
 
@@ -54,6 +65,16 @@
     &--progress {
         border-color: s.color(blue);
         color: s.color(blue);
+    }
+
+    &--disabled {
+        display: none;
+    }
+}
+
+.validation {
+    &--active {
+        border-color: s.color(red) !important;
     }
 }
 
