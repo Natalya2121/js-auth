@@ -1,8 +1,11 @@
+import { Session } from '../../class/session.js'
 import {
   Form,
   REG_EXP_EMAIL,
   REG_EXP_PASSWORD,
 } from '../../script/form.js'
+
+import { saveSession } from '../../script/session.js'
 
 class SignupForm extends Form {
   FIELD_NAME = {
@@ -90,6 +93,10 @@ class SignupForm extends Form {
 
         if (res.ok) {
           this.setAlert('success', data.message)
+          console.log('data.session', data.session)
+          saveSession(data.session)
+          console.log('window.session', window.session)
+          location.assign('/')
         } else {
           this.setAlert('error', data.message)
         }
